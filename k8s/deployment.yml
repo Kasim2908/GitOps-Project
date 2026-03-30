@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: gitops-container
-        image: your-dockerhub-username/gitops-app:v1
+        image: nginx:latest
         ports:
         - containerPort: 3000
