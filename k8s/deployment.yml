@@ -16,4 +16,4 @@ spec:
       - name: gitops-container
         image: nginx:latest
         ports:
-        - containerPort: 3000
+        - containerPort: 80
