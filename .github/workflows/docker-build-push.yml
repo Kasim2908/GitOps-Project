@@ -13,6 +13,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Set image tag
+        id: vars
+        run: echo "TAG=${GITHUB_SHA}" >> $GITHUB_ENV
+
       - name: Login to DockerHub
         uses: docker/login-action@v2
         with:
@@ -20,7 +24,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build image
-        run: docker build -t mohammadkasim/gitops-app:v1 .
+        run: docker build -t mohammadkasim/gitops-app:$TAG .
 
       - name: Push image
-        run: docker push mohammadkasim/gitops-app:v1
+        run: docker push mohammadkasim/gitops-app:$TAG
