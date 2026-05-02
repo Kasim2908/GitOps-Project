@@ -2,10 +2,10 @@ name: Build and Push Docker Image
 
 on:
   workflow_dispatch:
-
-permissions:
-  contents: write
-
+permissions: 
+    pages: write
+    id-token: write
+    contents: read
 jobs:
   build:
     if: github.actor != 'github-actions[bot]'
